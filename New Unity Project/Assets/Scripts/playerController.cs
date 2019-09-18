@@ -15,9 +15,12 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnCollisionStay()
+    private void OnCollisionEnter(Collision col)
     {
-        isGrounded = true;
+        if (col.gameObject.tag == ("Ground") && isGrounded == false)
+        {
+            isGrounded = true;
+        }
     }
 
     // Update is called once per frame
