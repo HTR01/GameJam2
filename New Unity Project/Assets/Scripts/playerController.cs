@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour
     public float jumpSpeed = 1f;
     Rigidbody rb;
     public bool isGrounded;
+    public bool bigJump;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,11 @@ public class playerController : MonoBehaviour
         if (col.gameObject.tag == ("Ground") && isGrounded == false)
         {
             isGrounded = true;
+        }
+
+        if (col.gameObject.tag == ("BigJump") && bigJump == false)
+        {
+            bigJump = true;
         }
     }
 
@@ -40,6 +46,12 @@ public class playerController : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, 2, 0) * jumpSpeed, ForceMode.Impulse);
             isGrounded = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && bigJump)
+        {
+            rb.AddForce(new Vector3(0, 2, 0) * jumpSpeed * 2, ForceMode.Impulse);
+            bigJump = false;
         }
     }
 
