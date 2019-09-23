@@ -12,7 +12,7 @@ public class platformTimer : MonoBehaviour
     void Start()
     {
         //StartCoroutine("platformSwitch");
-        InvokeRepeating("platform1", 0, 0);
+       // InvokeRepeating("platform1", 0, 0);
         
         active = true;
 
